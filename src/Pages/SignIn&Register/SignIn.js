@@ -4,7 +4,7 @@ import logo from "../../Assets/logo.png";
 
 const SignIn = () => {
   return (
-    <div class="flex mt-[10%] shadow-2xl shadow-slate-500/50 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800 lg:max-w-4xl">
+    <div class="flex my-[3%] shadow-2xl shadow-slate-500/50 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800 lg:max-w-4xl">
       <div
         class="hidden bg-cover lg:block lg:w-1/2"
         style={{ backgroundImage: `url(${img})` }}
