@@ -1,9 +1,59 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../Assets/logo.png";
 import img from "../../Assets/register.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const { createUser, userProfileUpdate, setLoading } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        form.reset();
+        handleUpdateProfile(name, photoUrl);
+        navigate(from, { replace: true });
+        toast.success("Registration Successfull");
+        toast.success("verify your email to login");
+      })
+      .catch((error) => {
+        setError(error.message);
+        toast.error(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const handleUpdateProfile = (name, photoUrl) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoUrl,
+    };
+    userProfileUpdate(profile)
+      .then(() => toast.success("Profile Updated"))
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div class="flex my-[3%] shadow-2xl shadow-slate-500/50 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800 lg:max-w-4xl">
       <div
@@ -31,7 +81,7 @@ const Register = () => {
           <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <label
               class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
@@ -111,6 +161,9 @@ const Register = () => {
             <button class="w-full px-4 py-2 glass tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Sign Up
             </button>
+            <p>
+              <small className="text-red-600">{error}</small>
+            </p>
           </div>
         </form>
 
