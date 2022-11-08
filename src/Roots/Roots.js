@@ -4,6 +4,8 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/HomePage/Home";
 import SignIn from "../Pages/SignIn&Register/SignIn";
 import Services from "../Pages/Services/Services";
+import Register from "../Pages/SignIn&Register/Register";
+import PrivateRoot from "./PrivateRoot";
 
 export const Router = createBrowserRouter([
   {
@@ -24,11 +26,19 @@ export const Router = createBrowserRouter([
       },
       {
         path: "blogs",
-        element: <Blogs></Blogs>,
+        element: (
+          <PrivateRoot>
+            <Blogs></Blogs>
+          </PrivateRoot>
+        ),
       },
       {
         path: "/signin",
         element: <SignIn></SignIn>,
+      },
+      {
+        path: "/signup",
+        element: <Register></Register>,
       },
     ],
   },

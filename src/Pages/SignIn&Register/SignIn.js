@@ -1,8 +1,58 @@
-import React from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../Assets/appointment.jpg";
 import logo from "../../Assets/logo.png";
+import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
 const SignIn = () => {
+  const [error, setError] = useState("");
+  const { googleProvider, signIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
+  // google sign in
+  const googleSignInProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    googleProvider(googleSignInProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+        toast.success("successfully login");
+      })
+      .catch((error) => toast.error(error.message));
+  };
+
+  // email password login
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError("");
+        navigate(from, { replace: true });
+        toast.success("login Successfull");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+        toast.error(error.message);
+      })
+      .finally(() => {});
+  };
+
   return (
     <div class="flex my-[3%] shadow-2xl shadow-slate-500/50 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg dark:bg-gray-800 lg:max-w-4xl">
       <div
@@ -20,9 +70,9 @@ const SignIn = () => {
           Welcome back!
         </p>
 
-        <a
-          href="#"
-          class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+        <button
+          onClick={handleGoogleSignIn}
+          class="flex w-full items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-indigo-500"
         >
           <div class="px-4 py-2">
             <svg class="w-6 h-6" viewBox="0 0 40 40">
@@ -48,7 +98,7 @@ const SignIn = () => {
           <span class="w-5/6 px-4 py-3 font-bold text-center">
             Sign in with Google
           </span>
-        </a>
+        </button>
 
         <div class="flex items-center justify-between mt-4">
           <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
@@ -60,7 +110,7 @@ const SignIn = () => {
           <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div class="mt-4">
             <label
               class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
@@ -73,6 +123,8 @@ const SignIn = () => {
               class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
               type="email"
               placeholder="Your Email"
+              name="email"
+              required
             />
           </div>
 
@@ -96,26 +148,31 @@ const SignIn = () => {
               id="loggingPassword"
               class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
               type="password"
+              name="password"
+              required
               placeholder="Your Password"
             />
           </div>
 
           <div class="mt-8">
             <button class="w-full px-4 py-2 glass tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-              Login
+              Sign In
             </button>
+            <p>
+              <small className="text-red-600">{error}</small>
+            </p>
           </div>
         </form>
 
         <div class="flex items-center justify-between mt-4">
           <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-          <a
-            href="#"
+          <Link
+            to="/signup"
             class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
           >
             or sign up
-          </a>
+          </Link>
 
           <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
         </div>

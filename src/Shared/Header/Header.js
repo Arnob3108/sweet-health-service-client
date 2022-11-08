@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
+import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("logout Success");
+      })
+      .catch((error) => toast.error(error.message));
+  };
+
   return (
     <div className="navbar bg-base-200 shadow-2xl dark:text-white shadow-slate-500/50">
       <div className="navbar-start lg:ml-28">
@@ -75,7 +87,7 @@ const Header = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/80/80/people" />
+              <img src={user?.photoURL} alt="" />
             </div>
           </label>
           <ul
@@ -89,7 +101,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="">Logout</Link>
+              <button onClick={handleLogOut}>Logout</button>
             </li>
           </ul>
         </div>
