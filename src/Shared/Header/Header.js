@@ -4,7 +4,7 @@ import logo from "../../Assets/logo.png";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-200 shadow-2xl shadow-slate-500/50">
+    <div className="navbar bg-base-200 shadow-2xl dark:text-white shadow-slate-500/50">
       <div className="navbar-start lg:ml-28">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
