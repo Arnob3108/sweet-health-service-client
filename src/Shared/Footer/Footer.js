@@ -5,8 +5,8 @@ const Footer = () => {
     <footer class="flex justify-center px-4 text-gray-800 bg-base-200 dark:text-white">
       <div class="container py-6">
         <h1 class="text-lg font-bold text-center lg:text-2xl">
-          Join 31,000+ other and never miss <br /> out on new tips, tutorials,
-          and more.
+          Join 31,000+ other and never miss <br /> out on new health tips,
+          health tutorials, and more.
         </h1>
 
         <div class="flex justify-center mt-6">

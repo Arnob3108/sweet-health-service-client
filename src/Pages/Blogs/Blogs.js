@@ -13,9 +13,8 @@ const Blogs = () => {
             From the blog
           </h1>
 
-          <p class="max-w-lg mx-auto mt-4 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-            veritatis sint autem nesciunt, laudantium quia tempore delect
+          <p class="max-w-lg mx-auto mt-4 text-gray-500 text-xl">
+            Some Theory About Backend Devolopment
           </p>
         </div>
 
