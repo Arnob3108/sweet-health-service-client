@@ -1,15 +1,34 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Details = ({ service }) => {
   const { name, img, _id, tagLine, date, time, discription, visit } = service;
   return (
     <div className=" dark:text-white">
       <div className="w-full lg:h-[40rem]">
-        <img
+        {/* <img
           className="w-full lg:w-[80%] mx-auto rounded-3xl h-full"
           src={img}
           alt=""
-        />
+        /> */}
+        <PhotoProvider
+          src={img}
+          speed={() => 800}
+          easing={(type) =>
+            type === 2
+              ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
+              : "cubic-bezier(0.34, 1.56, 0.64, 1)"
+          }
+        >
+          <PhotoView src={img}>
+            <img
+              src={img}
+              alt={name}
+              className="w-full lg:w-[80%] mx-auto rounded-3xl h-full"
+            />
+          </PhotoView>
+        </PhotoProvider>
       </div>
       <div>
         <h1 className="lg:text-4xl text-2xl font-bold my-5">{name}</h1>
