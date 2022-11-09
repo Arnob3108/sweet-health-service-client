@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
-import PrivateRoot from "../../Roots/PrivateRoot";
+import AllReviews from "../Reviews/AllReviews";
 import Reviews from "../Reviews/Reviews";
 import Details from "./Details";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
-  const { name, img, _id, tagLine, date, time, discription } = service;
+  const { name } = service;
+  const location = useLocation();
   return (
     <div>
       <h1 className="lg:text-6xl text-2xl font-bold text-center my-[2%] dark:text-white">
@@ -35,7 +36,7 @@ const ServiceDetails = () => {
                 <h1 className="text-4xl capitalize dark:text-white font-bold">
                   Please Sign in to provide feedback
                 </h1>
-                <Link to="/signin">
+                <Link to="/signin" state={{ from: location }} replace>
                   <button className="btn btn-ghost glass text-2xl dark:text-white bg-indigo-500/80 mt-5">
                     Give Feedback
                   </button>
@@ -43,9 +44,7 @@ const ServiceDetails = () => {
               </div>
             )}
           </div>
-          <div className=" bg-fuchsia-100">
-            <h1>reviews</h1>
-          </div>
+          <AllReviews service={service} key={service._id}></AllReviews>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ const ReviewForm = ({ service }) => {
     const reviews = {
       service: _id,
       serviceName: name,
-      user: userName,
+      userName: userName,
       email,
       feedback,
     };
