@@ -10,7 +10,7 @@ const Services = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-center text-4xl capitalize font-bold dark:text-white my-10">
+      <h1 className="text-center text-2xl lg:text-4xl capitalize font-bold dark:text-white my-10">
         If you're looking for best{" "}
         <span className="text-indigo-500">Gynae. & Obs.</span> treatment!!!{" "}
         <br />

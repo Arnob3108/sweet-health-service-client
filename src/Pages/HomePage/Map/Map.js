@@ -3,8 +3,13 @@ import React from "react";
 const Map = () => {
   return (
     <div>
+      <div>
+        <h1 className="lg:text-4xl text-3xl font-bold dark:text-white ml-[5%] lg:ml-[10%] capitalize">
+          Check Our location on <br /> Google map
+        </h1>
+      </div>
       <section class="text-gray-600 body-font relative">
-        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+        <div class="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
           <div class="lg:w-full h-[46rem] md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
             <iframe
               width="100%"

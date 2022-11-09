@@ -8,7 +8,7 @@ import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
 const SignIn = () => {
   const [error, setError] = useState("");
-  const { googleProvider, signIn } = useContext(AuthContext);
+  const { googleProvider, signIn, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -50,7 +50,9 @@ const SignIn = () => {
         setError(error.message);
         toast.error(error.message);
       })
-      .finally(() => {});
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (

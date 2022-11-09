@@ -13,8 +13,10 @@ const ThreeService = ({ service }) => {
               alt=""
             />
             <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-              <p className="mb-4 text-3xl font-bold text-gray-100">{name}</p>
-              <p className="mb-4 text-xl font-medium tracking-wide text-gray-300">
+              <p className="mb-4 lg:text-3xl text-xl font-bold text-gray-100">
+                {name}
+              </p>
+              <p className="mb-4 lg:text-xl font-medium tracking-wide text-gray-300">
                 {tagLine}
               </p>
               <p className="text-lg tracking-wide text-gray-300">

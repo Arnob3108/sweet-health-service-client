@@ -29,15 +29,17 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  //   update profile
-  const userProfileUpdate = (profile) => {
-    return updateProfile(auth.currentUser, profile);
-  };
 
   // email password sign in
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  //   update profile
+  const userProfileUpdate = (profile) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, profile);
   };
 
   // log out
