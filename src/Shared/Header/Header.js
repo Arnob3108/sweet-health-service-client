@@ -100,13 +100,7 @@ const Header = () => {
             </ul>
           </div>
         ) : (
-          <div>
-            <Link to="/signin">
-              <button className="btn btn-ghost lg:text-xl font-semibold">
-                Sign In
-              </button>
-            </Link>
-          </div>
+          <></>
         )}
       </div>
     </div>

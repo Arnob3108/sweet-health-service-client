@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+import ReviewForm from "./ReviewForm";
 
-const Reviews = () => {
+const Reviews = ({ service }) => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
-      <h1>this is reviews</h1>
+      <ReviewForm service={service} key={service._id}></ReviewForm>
     </div>
   );
 };

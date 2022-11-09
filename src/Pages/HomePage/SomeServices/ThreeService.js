@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ThreeService = ({ service }) => {
-  const { name, img, _id, tagLine, date, time, discription } = service;
+  const { name, img, _id, tagLine, date, time, discription, visit } = service;
   return (
     <div>
       <div>
@@ -18,7 +18,7 @@ const ThreeService = ({ service }) => {
                 {name}
               </p>
               <p className="mb-4 lg:text-xl font-medium tracking-wide text-gray-300">
-                {tagLine}
+                Visiting Fee: {visit}TK
               </p>
               <p className="text-lg tracking-wide text-gray-300">
                 {" "}

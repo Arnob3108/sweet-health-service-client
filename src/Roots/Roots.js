@@ -7,6 +7,7 @@ import Services from "../Pages/Services/Services";
 import Register from "../Pages/SignIn&Register/Register";
 import PrivateRoot from "./PrivateRoot";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
+import Reviews from "../Pages/Reviews/Reviews";
 
 export const Router = createBrowserRouter([
   {

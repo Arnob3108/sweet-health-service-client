@@ -1,9 +1,9 @@
 import React from "react";
 
 const Details = ({ service }) => {
-  const { name, img, _id, tagLine, date, time, discription } = service;
+  const { name, img, _id, tagLine, date, time, discription, visit } = service;
   return (
-    <div className="my-[5%] dark:text-white">
+    <div className=" dark:text-white">
       <div className="w-full lg:h-[40rem]">
         <img
           className="w-full lg:w-[80%] mx-auto rounded-3xl h-full"
@@ -20,6 +20,10 @@ const Details = ({ service }) => {
           <p>
             <span className="dark:text-white">Visiting Date: </span>
             {date}
+          </p>
+          <p>
+            <span className="dark:text-white">Visiting Fee: </span>
+            {visit}
           </p>
           <p>
             <span className=" dark:text-white">Visiting Time: </span>
