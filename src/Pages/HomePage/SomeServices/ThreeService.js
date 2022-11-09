@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ThreeService = ({ service }) => {
-  const { name, img, id, tagLine, date, time, discription } = service;
+  const { name, img, _id, tagLine, date, time, discription } = service;
   return (
     <div>
       <div>
-        <a href="/" aria-label="View Item">
+        <Link to={`/service/${_id}`} aria-label="View Item">
           <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
             <img
               className="object-cover w-full h-56 md:h-64 xl:h-80"
@@ -28,7 +29,7 @@ const ThreeService = ({ service }) => {
               </p>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

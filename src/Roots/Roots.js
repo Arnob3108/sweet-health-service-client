@@ -6,6 +6,7 @@ import SignIn from "../Pages/SignIn&Register/SignIn";
 import Services from "../Pages/Services/Services";
 import Register from "../Pages/SignIn&Register/Register";
 import PrivateRoot from "./PrivateRoot";
+import ServiceDetails from "../Pages/Services/ServiceDetails";
 
 export const Router = createBrowserRouter([
   {
@@ -39,6 +40,12 @@ export const Router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register></Register>,
+      },
+      {
+        path: "/service/:id",
+        element: <ServiceDetails></ServiceDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/service/${params.id}`),
       },
     ],
   },
