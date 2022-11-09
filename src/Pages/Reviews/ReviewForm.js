@@ -61,7 +61,9 @@ const ReviewForm = ({ service }) => {
         placeholder="Feedback"
         name="feedback"
       ></textarea>
-      <button className="btn btn-ghost w-80 ml-[18%] ">Give Feedback</button>
+      <button className="btn btn-active btn-ghost hover:bg-indigo-500 hover:dark:text-white w-80 ml-[10%] lg:ml-[18%] ">
+        Give Feedback
+      </button>
     </form>
   );
 };

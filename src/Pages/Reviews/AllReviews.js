@@ -20,7 +20,9 @@ const AllReviews = ({ service }) => {
 
   return (
     <div>
-      <h1>What Clients Saying</h1>
+      <h1 className="text-center text-4xl font-semibold dark:text-white my-3">
+        What Clients Saying
+      </h1>
       <div>
         {reviews.map((review) => (
           <SingleReview key={review._id} review={review}></SingleReview>

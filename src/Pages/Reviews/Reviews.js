@@ -9,7 +9,6 @@ const Reviews = ({ service }) => {
   return (
     <div>
       <ReviewForm service={service} key={service._id}></ReviewForm>
-      <AllReviews service={service} key={service._id}></AllReviews>
     </div>
   );
 };

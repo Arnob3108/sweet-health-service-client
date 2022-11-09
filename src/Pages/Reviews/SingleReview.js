@@ -1,19 +1,13 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const SingleReview = ({ review }) => {
-  //   console.log(review.reviews);
   const { userName, email, feedback } = review.reviews;
-  //   console.log(review.reviews);
-  const { user } = useContext(AuthContext);
+
   return (
-    <div class="w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+    <div class="w-full lg:ml-5 max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg dark:bg-gray-800">
       <div class="flex justify-center -mt-16 md:justify-end">
-        <img
-          class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400"
-          alt="Testimonial avatar"
-          src={`${user?.photoURL}`}
-        />
+        <FaUserCircle className="object-cover w-14 h-14 border-2 border-blue-500 rounded-full dark:border-blue-400"></FaUserCircle>
       </div>
 
       <h2 class="mt-2 text-2xl font-semibold text-gray-800 dark:text-white md:mt-0 md:text-3xl">
