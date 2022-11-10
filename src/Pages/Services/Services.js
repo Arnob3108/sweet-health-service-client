@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { BallTriangle } from "react-loader-spinner";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import AllService from "./AllService";
@@ -47,6 +48,9 @@ const Services = () => {
           <AllService key={service._id} service={service}></AllService>
         ))}
       </div>
+      <Helmet>
+        <title>Services - Sweet Health</title>
+      </Helmet>
     </div>
   );
 };

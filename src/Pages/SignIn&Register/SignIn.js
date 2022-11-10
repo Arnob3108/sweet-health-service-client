@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../Assets/appointment.jpg";
@@ -39,10 +40,27 @@ const SignIn = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user?.email,
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("sweetToken", data.token);
+            navigate(from, { replace: true });
+          });
+
         console.log(user);
         form.reset();
         setError("");
-        navigate(from, { replace: true });
+
         toast.success("login Successfull");
       })
       .catch((error) => {
@@ -179,6 +197,9 @@ const SignIn = () => {
           <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
         </div>
       </div>
+      <Helmet>
+        <title>Sign In - Sweet Health</title>
+      </Helmet>
     </div>
   );
 };

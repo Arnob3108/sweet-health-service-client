@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import img1 from "../../Assets/blogs/blog1.png";
 import img2 from "../../Assets/blogs/blog2.png";
 import img3 from "../../Assets/blogs/blog3.png";
@@ -140,6 +141,9 @@ const Blogs = () => {
           </div>
         </div>
       </div>
+      <Helmet>
+        <title>Blog - Sweet Health</title>
+      </Helmet>
     </section>
   );
 };

@@ -1,20 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import MyReview from "./MyReview";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const [myReviews, setMyReviews] = useState([]);
 
   useEffect(() => {
     fetch(
-      `https://review-server-arnob3108.vercel.app/myreviews?email=${user?.email}`
+      `https://review-server-arnob3108.vercel.app/myreviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("sweetToken")}`,
+        },
+      }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logOut();
+        }
+        return res.json();
+      })
       .then((data) => setMyReviews(data));
-  }, [user?.email]);
+  }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
@@ -50,6 +61,9 @@ const MyReviews = () => {
           ></MyReview>
         ))}
       </div>
+      <Helmet>
+        <title>My Reviews - Sweet Health</title>
+      </Helmet>
     </div>
   );
 };

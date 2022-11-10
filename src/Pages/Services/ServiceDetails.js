@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { BallTriangle } from "react-loader-spinner";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
@@ -49,6 +50,9 @@ const ServiceDetails = () => {
           <AllReviews service={service} key={service._id}></AllReviews>
         </div>
       </div>
+      <Helmet>
+        <title>{name} - Sweet Health</title>
+      </Helmet>
     </div>
   );
 };

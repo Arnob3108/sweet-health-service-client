@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 
 const AddService = () => {
@@ -137,6 +138,9 @@ const AddService = () => {
           </button>
         </div>
       </form>
+      <Helmet>
+        <title>Add Service - Sweet Health</title>
+      </Helmet>
     </section>
   );
 };

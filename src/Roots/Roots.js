@@ -10,11 +10,13 @@ import ServiceDetails from "../Pages/Services/ServiceDetails";
 import Reviews from "../Pages/Reviews/Reviews";
 import AddService from "../Pages/AddService/AddService";
 import MyReviews from "../Pages/MyReview/MyReviews";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const Router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

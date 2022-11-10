@@ -4,6 +4,7 @@ import img from "../../Assets/register.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -180,6 +181,9 @@ const Register = () => {
           <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
         </div>
       </div>
+      <Helmet>
+        <title>Register - Sweet Health</title>
+      </Helmet>
     </div>
   );
 };
