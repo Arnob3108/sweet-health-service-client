@@ -9,7 +9,9 @@ const MyReviews = () => {
   const [myReviews, setMyReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my-reviews?email=${user?.email}`)
+    fetch(
+      `https://review-server-arnob3108.vercel.app/myreviews?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyReviews(data));
   }, [user?.email]);
@@ -19,7 +21,7 @@ const MyReviews = () => {
       "Are You Sure, You Want To Delete Your Feedback?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://review-server-arnob3108.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
