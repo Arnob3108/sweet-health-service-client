@@ -22,13 +22,16 @@ const MyReview = ({ feedbacks, handleDelete }) => {
       photo,
     };
 
-    fetch(`http://localhost:5000/reviews/${feedbacks._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(reviews),
-    })
+    fetch(
+      `https://review-server-arnob3108.vercel.app/reviews/${feedbacks._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(reviews),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

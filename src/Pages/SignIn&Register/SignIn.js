@@ -23,8 +23,24 @@ const SignIn = () => {
     googleProvider(googleSignInProvider)
       .then((result) => {
         const user = result.user;
+        const currentUser = {
+          email: user?.email,
+        };
+        fetch("https://review-server-arnob3108.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("sweetToken", data.token);
+            navigate(from, { replace: true });
+          });
         console.log(user);
-        navigate(from, { replace: true });
+
         toast.success("successfully login");
       })
       .catch((error) => toast.error(error.message));
@@ -43,7 +59,7 @@ const SignIn = () => {
         const currentUser = {
           email: user?.email,
         };
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://review-server-arnob3108.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Live web site link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Sweet Health](https://sweet-health-service.web.app/).
 
-## Available Scripts
+- ## This web site build with React and Tailwind css
 
-In the project directory, you can run:
+In the project directory, you can run and configur it.
 
-### `npm start`
+- ### In this project I used react dowter dom to make it single page application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* ### I also used tailwind components such as daisyUI, kitwindUI components, merakiUI components to looks attractive.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This make it easy for me to make it awsome.
 
-### `npm test`
+- ### I used toastify for currect answer showing.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ### I designed a logo for this project. that you can show in my project.
 
-### `npm run build`
+- ### I make a statistics for total quiz from rechart.org
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ### added some question answer to the blog site.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ### I make this website responsive for mobile , tablet and pc.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ### I used authentication system from firebass.
 
-### `npm run eject`
+- ### I used 3 types of authentication system - google, github and email and password.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- ### I make private route to protect private some private data.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ### I used useContext hook to make esay to data passing.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ### I maked my on api by express and node js and deployed in vercel.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- ### This web site hosted from firebase.
 
-## Learn More
+- ### This web site had helmet to use title.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ### This web site use jwt token.

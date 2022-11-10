@@ -11,7 +11,7 @@ const AllReviews = ({ service }) => {
   //   console.log(reviews);
   //   const [refresh, setRefresh] = useState(false);
 
-  //   const url = `http://localhost:5000/reviews?service=${service._id}`;
+  //   const url = `https://review-server-arnob3108.vercel.app/reviews?service=${service._id}`;
 
   useEffect(() => {
     fetch(`https://review-server-psi.vercel.app/reviews?service=${_id}`)
