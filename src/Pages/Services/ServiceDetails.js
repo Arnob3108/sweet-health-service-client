@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { BallTriangle } from "react-loader-spinner";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import AllReviews from "../Reviews/AllReviews";
@@ -7,9 +8,10 @@ import Details from "./Details";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
-  const { user } = useContext(AuthContext);
+  const { user, loading, setLoading } = useContext(AuthContext);
   const { name } = service;
   const location = useLocation();
+
   return (
     <div>
       <h1 className="lg:text-6xl text-2xl font-bold text-center my-[2%] dark:text-white">

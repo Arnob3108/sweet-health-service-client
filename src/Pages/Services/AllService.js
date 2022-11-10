@@ -9,7 +9,6 @@ const allService = ({ service }) => {
     <div>
       <div className="card lg:w-[90%] h-[90%] bg-base-300 shadow-xl hover:shadow-2xl hover:shadow-indigo-500/50 transition hover:dark:text-white ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500/80 duration-300">
         <figure>
-          {/* <img className="w-full h-[20rem]" src={img} alt={name} /> */}
           <PhotoProvider
             src={img}
             speed={() => 800}

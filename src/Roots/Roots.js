@@ -28,11 +28,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "blogs",
-        element: (
-          <PrivateRoot>
-            <Blogs></Blogs>
-          </PrivateRoot>
-        ),
+        element: <Blogs></Blogs>,
       },
       {
         path: "/signin",

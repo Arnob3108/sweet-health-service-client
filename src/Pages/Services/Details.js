@@ -7,11 +7,6 @@ const Details = ({ service }) => {
   return (
     <div className=" dark:text-white">
       <div className="w-full lg:h-[40rem]">
-        {/* <img
-          className="w-full lg:w-[80%] mx-auto rounded-3xl h-full"
-          src={img}
-          alt=""
-        /> */}
         <PhotoProvider
           src={img}
           speed={() => 800}

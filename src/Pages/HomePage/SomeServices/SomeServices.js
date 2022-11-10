@@ -1,14 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { BallTriangle, InfinitySpin } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import ThreeService from "./ThreeService";
 
 const SomeServices = () => {
+  const { loading, setLoading } = useContext(AuthContext);
   const [services, setServices] = useState([]);
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5000/threeservices")
       .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, []);
+      .then((data) => {
+        setServices(data);
+        setLoading(false);
+      });
+  }, [setLoading]);
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#4fa94d"
+          ariaLabel="ball-triangle-loading"
+          wrapperClass={{}}
+          wrapperStyle=""
+          visible={true}
+        />
+      </div>
+    );
+  }
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">

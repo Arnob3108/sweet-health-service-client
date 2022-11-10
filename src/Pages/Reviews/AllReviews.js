@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { BallTriangle } from "react-loader-spinner";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import SingleReview from "./SingleReview";
 
 const AllReviews = ({ service }) => {
   const { _id } = service;
   //   console.log(service);
-  const { user } = useContext(AuthContext);
+  const { loading, setLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   //   console.log(reviews);
   //   const [refresh, setRefresh] = useState(false);
@@ -15,7 +16,9 @@ const AllReviews = ({ service }) => {
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?service=${_id}`)
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => {
+        setReviews(data);
+      });
   }, [_id]);
 
   return (
