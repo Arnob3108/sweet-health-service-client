@@ -8,7 +8,7 @@ const Services = () => {
   const { loading, setLoading } = useContext(AuthContext);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/services")
+    fetch("https://review-server-psi.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);

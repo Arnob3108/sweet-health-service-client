@@ -8,6 +8,8 @@ import Register from "../Pages/SignIn&Register/Register";
 import PrivateRoot from "./PrivateRoot";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import Reviews from "../Pages/Reviews/Reviews";
+import AddService from "../Pages/AddService/AddService";
+import MyReviews from "../Pages/MyReview/MyReviews";
 
 export const Router = createBrowserRouter([
   {
@@ -42,7 +44,23 @@ export const Router = createBrowserRouter([
         path: "/service/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://review-server-psi.vercel.app/service/${params.id}`),
+      },
+      {
+        path: "addService",
+        element: (
+          <PrivateRoot>
+            <AddService></AddService>
+          </PrivateRoot>
+        ),
+      },
+      {
+        path: "myReview",
+        element: (
+          <PrivateRoot>
+            <MyReviews></MyReviews>
+          </PrivateRoot>
+        ),
       },
     ],
   },

@@ -12,6 +12,7 @@ const ReviewForm = ({ service }) => {
     const userName = user?.displayName || form.userName.value;
     const email = user?.email || "unregistered";
     const feedback = form.feedback.value;
+    const photo = user?.photoURL;
 
     const reviews = {
       service: _id,
@@ -19,6 +20,7 @@ const ReviewForm = ({ service }) => {
       userName: userName,
       email,
       feedback,
+      photo,
     };
 
     fetch("http://localhost:5000/reviews", {

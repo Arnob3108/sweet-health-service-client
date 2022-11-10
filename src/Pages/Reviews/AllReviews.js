@@ -14,7 +14,7 @@ const AllReviews = ({ service }) => {
   //   const url = `http://localhost:5000/reviews?service=${service._id}`;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?service=${_id}`)
+    fetch(`https://review-server-psi.vercel.app/reviews?service=${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
